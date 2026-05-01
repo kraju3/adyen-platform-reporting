@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(curl -s \"http://localhost:3001/api/payouts?balanceAccountId=BA3000000000000000000001\")",
+      "Bash(curl -s \"http://localhost:3001/api/fees?balanceAccountId=BA3000000000000000000001\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(''''rows:'''', d[''''meta''''][''''count'''']\\); print\\(''''summary:'''', json.dumps\\(d[''''summary''''], indent=2\\)\\)\" echo \"\" curl -s \"http://localhost:3001/api/statement?balanceAccountId=BA3000000000000000000001\")",
+      "Bash(curl -s \"http://localhost:3001/api/platform/profitability\")",
+      "Bash(curl -s \"http://localhost:3001/api/platform/transaction-profitability\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(''''count:'''', d[''''meta''''][''''count'''']\\); print\\(json.dumps\\(d[''''data''''][-1], indent=2\\)\\)\")"
+    ]
+  }
+}
