@@ -3,6 +3,7 @@ import client from './api/client.js';
 import { MerchantContext } from './MerchantContext.jsx';
 import MerchantDashboard from './pages/MerchantDashboard.jsx';
 import PlatformDashboard from './pages/PlatformDashboard.jsx';
+import ReconciliationDashboard from './pages/ReconciliationDashboard.jsx';
 
 // Known merchant roster — used to display names without re-fetching
 const MERCHANT_NAMES = {
@@ -86,14 +87,36 @@ export default function App() {
             >
               Platform View
             </button>
+            <button
+              onClick={() => setView('reconciliation')}
+              className={`px-4 py-1.5 text-sm font-medium transition-colors border-l border-gray-300 ${
+                view === 'reconciliation'
+                  ? 'bg-green-600 text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              Reconciliation
+            </button>
           </div>
         </div>
       </header>
 
       <MerchantContext.Provider value={selectedBalanceAccountId}>
         <main className="p-6">
-          {view === 'merchant' ? <MerchantDashboard /> : <PlatformDashboard />}
+          {view === 'merchant' && <MerchantDashboard />}
+          {view === 'platform' && <PlatformDashboard />}
+          {view === 'reconciliation' && <ReconciliationDashboard />}
         </main>
+        <footer className="border-t border-gray-200 bg-white px-6 py-3 text-center text-xs text-gray-500">
+          <a
+            href="/docs/IMPLEMENTATION_AND_OPERATIONS.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-700 hover:text-green-800 hover:underline"
+          >
+            Implementation and methodology — how metrics are calculated
+          </a>
+        </footer>
       </MerchantContext.Provider>
     </div>
   );

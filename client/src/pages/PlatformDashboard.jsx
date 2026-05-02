@@ -3,6 +3,7 @@ import UserProfitabilityTable from '../components/UserProfitabilityTable.jsx';
 import TransactionProfitabilityTable from '../components/TransactionProfitabilityTable.jsx';
 import NegativeBalanceAlert from '../components/NegativeBalanceAlert.jsx';
 import ExceptionLog from '../components/ExceptionLog.jsx';
+import { PlatformReportGuide } from '../components/DashboardReportGuide.jsx';
 
 export default function PlatformDashboard() {
   return (
@@ -14,6 +15,8 @@ export default function PlatformDashboard() {
           Internal view — aggregate data across all sub-merchants. Not visible to merchants.
         </p>
       </div>
+
+      <PlatformReportGuide />
 
       {/* 1. KPIs + trend chart */}
       <PlatformProfitability />

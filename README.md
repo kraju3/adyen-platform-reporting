@@ -24,6 +24,16 @@ The pipeline covers all four Adyen Balance Platform reports:
 
 ---
 
+## Implementation and methodology
+
+For **parser rules**, **API calculation logic**, **frontend KPI definitions**, and **production guidance** (webhooks, storage, retention, invoicing), see:
+
+**[docs/IMPLEMENTATION_AND_OPERATIONS.md](docs/IMPLEMENTATION_AND_OPERATIONS.md)**
+
+With `npm run dev`, the same file is served at `/docs/IMPLEMENTATION_AND_OPERATIONS.md` and linked from the app footer.
+
+---
+
 ## Architecture
 
 ```
@@ -120,7 +130,7 @@ Only the final row has a Transaction Id populated — this is the deduplication 
 ## API endpoints
 
 ```
-GET /api/transactions                     Final-status txns (platformPayment + bank)
+GET /api/transactions                     Final-status txns (platformPayment + bank + card)
 GET /api/payouts                          Payout batches with transactions + disbursement
 GET /api/fees                             Fee rows + pre-computed byType summary
 GET /api/statement                        Per-merchant ledger with opening/closing balance

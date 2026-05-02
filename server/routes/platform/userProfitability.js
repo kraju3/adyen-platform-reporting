@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { getAccountingFinal, getFees } from '../../services/reportStore.js';
-import { MERCHANT_NAMES, LIABLE_BALANCE_ACCOUNT } from '../../constants/merchants.js';
 import logger from '../../services/logger.js';
 
 const router = Router();
@@ -22,7 +21,6 @@ router.get('/', async (req, res) => {
     const merchantMap = {};
 
     for (const r of finalRows) {
-      if (r.accountHolder === LIABLE_BALANCE_ACCOUNT) continue;
       const ah = r.accountHolder;
 
       if (!merchantMap[ah]) {

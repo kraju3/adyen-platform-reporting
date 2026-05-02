@@ -5,6 +5,7 @@ import FeeBreakdown from '../components/FeeBreakdown.jsx';
 import TransactionTable from '../components/TransactionTable.jsx';
 import StatementView from '../components/StatementView.jsx';
 import DisputeTracker from '../components/DisputeTracker.jsx';
+import { MerchantReportGuide } from '../components/DashboardReportGuide.jsx';
 
 export default function MerchantDashboard() {
   const [startDate, setStartDate] = useState('');
@@ -12,6 +13,8 @@ export default function MerchantDashboard() {
 
   return (
     <div className="space-y-6">
+      <MerchantReportGuide />
+
       {/* Date range picker */}
       <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-lg px-4 py-3">
         <span className="text-sm text-gray-500 font-medium">Date range:</span>
